@@ -2,6 +2,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    let gameActive = true;
+    let gamestate = ["", "", "", "", "", "", "", "", ""];
     const statusDisplay = document.querySelector('div #status');
     var currentplayer = 1;
 
@@ -93,6 +95,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    document.querySelectorAll('square').forEach(box => box.addEventListener('click', isClicked));
+    function restartGame() {
 
+        gameActive = true;
+        gamestate = ["", "", "", "", "", "", "", "", ""];
+        document.querySelectorAll('.square').forEach(boxes => boxes.innerHTML = "");
+        statusDisplay.innerText = "Move your mouse over a square and click to play an X or an O.";
+        currentplayer = 1;
+
+    }
+
+    document.querySelectorAll('square').forEach(box => box.addEventListener('click', isClicked));
+    document.querySelector('.btn').addEventListener('click', restartGame);
 });
