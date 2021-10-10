@@ -9,7 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
         boxes[i].className = "square";
 
     }
+    boxes.forEach((box) => {
+        box.addEventListener('mouseover', function(e) {
+            e.target.classList.add('hover');
+        });
 
+        box.addEventListener('mouseout', function(e) {
+            e.target.classList.remove('hover');
+        });
+    });
 
 
     boxes.forEach(element => { element.addEventListener('click', isClicked) })
